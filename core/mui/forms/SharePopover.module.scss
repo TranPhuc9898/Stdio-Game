@@ -1,0 +1,72 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+
+.sharePopover {
+    width: max-content;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid T.$borderColor;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .classic {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+
+        .qrCode {
+            width: 140px;
+            line-height: 0;
+        }
+
+        .social {
+            width: 40px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            button {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 1.2rem !important;
+                color: #000;
+                cursor: pointer;
+                background-color: #fafafa !important;
+
+                &:hover {
+                    background-color: #f0f0f0 !important;
+                }
+            }
+        }
+    }
+
+    .copy {
+        display: flex;
+        border: 1px solid T.$borderColor;
+        border-radius: 5px;
+        overflow: hidden;
+
+        input {
+            width: 158px;
+            border: none;
+            outline: none;
+
+            box-sizing: border-box;
+            padding: 0 0 0 5px;
+        }
+
+        .button {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

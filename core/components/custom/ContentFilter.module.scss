@@ -1,0 +1,53 @@
+@use "../../../styles/template" as T;
+@use "../../../styles/main-template" as MT;
+
+$navigationHeight: 36px;
+
+.contentFilter {
+    height: $navigationHeight;
+    margin: MT.$marginPc 0 0 0;
+
+    @include T.resetUlLi();
+
+    ul {
+        width: max-content;
+        height: $navigationHeight;
+        overflow-y: hidden;
+        margin: 0 auto;
+
+        li {
+            width: auto;
+            display: inline-block;
+
+            > a {
+                height: $navigationHeight;
+                width: fit-content;
+                white-space: nowrap;
+                line-height: $navigationHeight;
+                background-color: transparent;
+                text-transform: uppercase;
+                display: inline-block;
+                padding: 0 18px;
+                font-weight: 600;
+                margin: 0px 5px;
+                text-align: center;
+                font-size: 0.8rem;
+                color: #999;
+                border-radius: 999px;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+
+                &.active {
+                    color: #fff;
+                    background-color: #000;
+                }
+            }
+        }
+    }
+}

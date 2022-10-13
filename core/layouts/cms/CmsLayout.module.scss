@@ -1,0 +1,49 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/cms-template.scss' as CT;
+
+.cmsLayout {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    width: 100%;
+    height: MT.$headerHeight + 1px;
+    border-bottom: 1px solid T.$borderColor;
+  }
+
+  .body {
+    width: 100%;
+    flex: auto;
+    display: grid;
+    grid-template-columns: CT.$siderWidth 1fr;
+
+    .sider {
+      border-right: 1px solid T.$borderColor;
+      background-color: #fff;
+    }
+
+    .main {
+      background-color: CT.$siderBackground;
+
+      .mainCenter {
+        .navigation {
+          height: 40px;
+          border-bottom: 1px solid #eee;
+          padding: 0 MT.$paddingPc;
+          display: flex;
+          align-items: center;
+          background-color: rgba(0, 0, 0, 0.01);
+        }
+
+        .content {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

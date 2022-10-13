@@ -1,0 +1,107 @@
+@use "../../../styles/template" as T;
+@use "../../../styles/main-template" as MT;
+
+.commentSection {
+    width: 100%;
+    margin: 0;
+    float: left;
+
+    .commentForm {
+        width: 100%;
+        float: left;
+    }
+
+    .comments {
+        width: 100%;
+        margin-top: MT.$marginPc;
+        float: left;
+
+        .comment {
+            width: 100%;
+            margin-bottom: MT.$marginPc;
+            float: left;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .main {
+                width: 100%;
+                float: left;
+            }
+
+            .replySection {
+                width: calc(100% - 52px);
+                margin: 10px 0 0 52px;
+                float: left;
+
+                .replies {
+                    width: 100%;
+                    float: left;
+
+                    .reply {
+                        width: 100%;
+                        border-left: 1px solid #ccc;
+                        padding-left: 16px;
+                        margin-top: 15px;
+                        float: left;
+
+                        .main {
+                        }
+                    }
+                }
+
+                > .more {
+                    width: 100%;
+                    height: 40px;
+                    line-height: 40px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    padding-left: 64px;
+                    color: #000;
+                    float: left;
+                }
+
+                .replyForm {
+                    width: 100%;
+                    padding-left: 16px;
+                    margin-top: 15px;
+                    float: left;
+                }
+            }
+        }
+    }
+
+    > .more {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        padding-left: 52px;
+        color: #000;
+        float: left;
+    }
+}
+
+.popoverActions {
+    float: right;
+    background-color: #fff;
+    padding: 0.5rem;
+    border: 1px solid #eee;
+
+    button {
+        width: 100%;
+        display: block;
+        margin: 2px 0;
+        border: none;
+
+        &:hover,
+        &:focus {
+            background-color: #ffcc80;
+            color: #fff;
+        }
+    }
+}

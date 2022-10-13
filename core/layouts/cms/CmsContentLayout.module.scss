@@ -1,0 +1,69 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/cms-template.scss' as CT;
+
+.cmsContentLayout {
+    @include MT.section();
+
+    padding-top: MT.$paddingPc;
+    padding-bottom: MT.$paddingPc;
+
+    .cmsContentLayoutCenter {
+        @include MT.sectionCenter(none);
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        background-color: #fff;
+        border: 1px solid T.$borderColor;
+        border-radius: 5px;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        .message {
+            padding: 0 20px;
+        }
+
+        .header {
+            display: flex;
+            padding: 0 MT.$paddingPhone;
+
+            .title {
+            }
+
+            .buttons {
+                .button {
+                    @include T.button();
+                }
+            }
+        }
+
+        .searchBar {
+            padding: 0 20px;
+            display: flex;
+
+            .search {
+            }
+
+            .searchButton {
+                @include T.button();
+                width: 32px;
+                margin-left: 5px;
+            }
+        }
+
+        .filters {
+            padding: 0 20px;
+        }
+
+        .table {
+            padding: 0;
+        }
+
+        .pagination {
+            padding: 0 20px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@use '../../../../../styles/template.scss' as T;
+@use '../../../../../styles/main-template.scss' as MT;
+
+.basicMessenger {
+  padding: MT.$paddingPc;
+  background-color: #f9f2f3;
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    margin-bottom: MT.$paddingPc / 2;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+
+    a {
+      &:link,
+      &:visited {
+        color: T.$mainColor;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

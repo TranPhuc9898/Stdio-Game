@@ -1,0 +1,17 @@
+@use "../../../styles/template" as T;
+@use "../../../styles/main-template" as MT;
+
+.mainLayout {
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+
+  padding-top: MT.$headerHeight;
+
+  .contentLayout {
+    margin: 0;
+    background-color: #fff;
+    min-height: 80vh;
+  }
+}

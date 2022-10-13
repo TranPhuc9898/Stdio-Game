@@ -1,0 +1,15 @@
+@use '../../../../styles/template.scss' as T;
+@use '../../../../styles/main-template.scss' as MT;
+
+.appComposer {
+    display: grid;
+    grid-template-columns: 3fr 2fr 3fr 2fr;
+    gap: MT.$marginPc;
+
+    .col {
+        .fieldset {
+            border: T.$borderColor 1px solid;
+            border-radius: 5px;
+        }
+    }
+}

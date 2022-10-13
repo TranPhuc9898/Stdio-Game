@@ -1,0 +1,129 @@
+@use 'sass:math';
+@use '../../../styles/template' as T;
+@use '../../../styles/main-template' as MT;
+
+.mainFooter {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #000;
+
+    > .logo {
+        @include MT.section();
+
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .menu {
+        @include MT.section();
+        background-color: rgba(255, 255, 255, 0.1);
+
+        @include T.resetUlLi();
+
+        ul.menuCenter {
+            height: 60px;
+            display: flex;
+            gap: 30px;
+            display: flex;
+            align-items: center;
+
+            > li {
+                margin: 0;
+                padding: 0;
+
+                > a {
+                    &:link,
+                    &:visited {
+                        color: #fff;
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .connection {
+        @include MT.section();
+
+        .connectionCenter {
+            @include MT.sectionCenter();
+
+            display: grid;
+            grid-template-columns: 2fr 2fr 2fr 2fr 6fr;
+            gap: MT.$marginPc;
+
+            padding-top: MT.$paddingPc;
+            padding-bottom: MT.$paddingPc;
+
+            > .logo {
+                img {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+
+            h3 {
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 0.9rem;
+                color: #fff;
+                margin-bottom: 6px;
+                margin-top: 0;
+            }
+
+            @include T.resetUlLi();
+
+            ul {
+                li {
+                    min-height: 25px;
+
+                    a {
+                        color: #fff;
+                        font-size: 0.85rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .contact {
+                width: 100%;
+                float: left;
+
+                h5 {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    font-size: 0.9rem;
+                    color: #fff;
+                    margin-bottom: 6px;
+                }
+                p {
+                    color: #fff;
+                    margin-top: 0;
+                    margin-bottom: 1em;
+                    font-size: 14px;
+                    line-height: 1.5715;
+                }
+            }
+
+            @media screen and (max-width: T.$mdMin) {
+                grid-template-columns: 2fr 2fr;
+
+                .contact {
+                    grid-column: 1 / -1;
+                }
+            }
+        }
+    }
+
+    .credit {
+        @include MT.section();
+
+        text-align: center;
+        border-top: 1px solid #222;
+        color: #999;
+        padding: 20px 0;
+        float: left;
+        font-size: 0.9rem;
+    }
+}

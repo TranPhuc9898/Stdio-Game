@@ -1,0 +1,40 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/cms-template.scss' as CT;
+
+.cmsShortcuts {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: MT.$marginPc;
+
+    .shortcut {
+        color: #000;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 1px solid T.$borderColor;
+        text-align: center;
+        display: block;
+        padding: MT.$paddingPc;
+        text-decoration: none;
+
+        .icon {
+            text-decoration: none;
+        }
+
+        h3 {
+            margin: 20px 0;
+            text-decoration: none;
+        }
+
+        p {
+            text-decoration: none;
+        }
+
+        &:hover {
+            color: T.$mainColor;
+            border-color: T.$mainColor;
+            text-decoration: none;
+        }
+    }
+}

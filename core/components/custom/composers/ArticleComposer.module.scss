@@ -1,0 +1,21 @@
+@use '../../../../styles/template.scss' as T;
+@use '../../../../styles/main-template.scss' as MT;
+
+.articleComposer {
+    display: grid;
+    grid-template-columns: 12fr 2fr;
+    gap: MT.$marginPc;
+
+    .col {
+        &.meta {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: MT.$marginPc;
+        }
+
+        .fieldset {
+            border: T.$borderColor 1px solid;
+            border-radius: 5px;
+        }
+    }
+}

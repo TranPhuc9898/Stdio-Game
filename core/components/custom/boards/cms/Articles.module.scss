@@ -1,0 +1,9 @@
+@use '../../../../../styles/template' as T;
+@use '../../../../../styles/main-template' as MT;
+
+.articles {
+    width: 100%;
+    .button {
+        margin: 0 5px;
+    }
+}

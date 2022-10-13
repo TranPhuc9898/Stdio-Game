@@ -1,0 +1,54 @@
+@use '../../../styles/template' as T;
+@use '../../../styles/main-template' as MT;
+
+a.appItemLite {
+    width: 280px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    box-shadow: 0 0 0 1px #e5e5e5;
+    border-radius: 10px;
+    transition: 0.5s;
+    text-decoration: none;
+
+    .icon {
+        width: 80px;
+        height: 80px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .meta {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        > .name {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        > .headline {
+            font-size: 1rem;
+        }
+
+        > .button {
+            line-height: 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin: 4px 0 0 0;
+            border-radius: 3px;
+            justify-self: flex-end;
+            display: flex;
+            gap: 5px;
+        }
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+        box-shadow: 0 0 0 1px #ccc;
+    }
+}

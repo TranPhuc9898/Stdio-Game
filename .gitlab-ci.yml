@@ -1,0 +1,68 @@
+cache:
+    paths:
+        - node_modules
+
+stages:
+    - image
+    - deploy
+
+variables:
+    IMAGE_REGISTRY: $CI_REGISTRY_IMAGE
+
+    CONTAINER_NAME: iostream-production-games
+    CONTAINER_HOME: /root/projects/iostream/production/games
+
+    PORT: 3000
+    HOST: games.iostream.vn
+
+    SSH_USER: root
+    SSH_HOST: 112.213.91.151
+
+"[Production] Image Frontend":
+    stage: "image"
+    allow_failure: false
+    when: manual
+    tags:
+        - build
+
+    before_script:
+        - docker logout $CI_REGISTRY
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - export BUILD_IMAGE=$IMAGE_REGISTRY/$CI_COMMIT_REF_SLUG
+
+    script:
+        - docker build --build-arg RELEASE=prod --cache-from $BUILD_IMAGE -t $BUILD_IMAGE -t $BUILD_IMAGE:$CI_COMMIT_SHORT_SHA .
+        - docker push $BUILD_IMAGE
+
+"[Production] Deploy Frontend":
+    stage: "deploy"
+    needs: ["[Production] Image Frontend"]
+    when: on_success
+    tags:
+        - deploy
+
+    before_script:
+        - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )"
+        - eval $(ssh-agent -s)
+        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        - mkdir -p ~/.ssh
+        - chmod 700 ~/.ssh
+        - ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
+        - chmod 644 ~/.ssh/known_hosts
+        - export CONTAINER_INSTANCE=1
+        - export DEPLOY_IMAGE=$IMAGE_REGISTRY/$CI_COMMIT_REF_SLUG
+
+        - echo $DEPLOY_IMAGE
+        - echo $CI_REGISTRY_USER
+        - echo $CI_REGISTRY
+        - echo $IMAGE_REGISTRY
+        - echo $CONTAINER_NAME
+        - echo $HOST
+        - echo $PORT
+        - echo $CONTAINER_INSTANCE
+
+    script:
+        - ssh $SSH_USER@$SSH_HOST "mkdir -p $CONTAINER_HOME"
+        - scp ./deploy/deploy.sh $SSH_USER@$SSH_HOST:$CONTAINER_HOME/deploy.sh
+        - scp ./deploy/docker-compose.template.yml $SSH_USER@$SSH_HOST:$CONTAINER_HOME/docker-compose.yml
+        - ssh $SSH_USER@$SSH_HOST "cd $CONTAINER_HOME && docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY && sh deploy.sh $DEPLOY_IMAGE $CONTAINER_NAME $HOST $PORT $CONTAINER_INSTANCE"

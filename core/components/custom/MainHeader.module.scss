@@ -1,0 +1,129 @@
+@use '../../../styles/template' as T;
+@use '../../../styles/main-template' as MT;
+
+.mainHeader {
+    @include MT.section();
+    height: MT.$headerHeight;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+
+    background-color: #fff;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px, rgba(0, 0, 0, 0.1) 0px 1px 4px 0px,
+        rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
+
+    .mainHeaderCenter {
+        @include MT.sectionCenter();
+        height: MT.$headerHeight;
+
+        display: flex;
+        justify-content: space-between;
+
+        .info {
+            display: flex;
+            gap: 10px;
+
+            > .logo {
+                height: 48px;
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+
+                line-height: 0;
+
+                span {
+                    display: block;
+
+                    &:nth-of-type(1) {
+                        transition: 0.4s;
+
+                        img {
+                            height: 36px;
+                        }
+
+                        &:hover {
+                            transform: rotate(90deg);
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        img {
+                            height: 18px;
+                        }
+                    }
+                }
+            }
+
+            .search {
+                height: 100%;
+                margin-left: 20px;
+            }
+        }
+
+        > .mainMenu {
+            width: auto;
+            height: MT.$headerHeight;
+
+            .button {
+                width: MT.$headerHeight;
+                height: MT.$headerHeight;
+                line-height: MT.$headerHeight;
+                color: #023;
+                text-align: center;
+                cursor: pointer;
+                font-size: 1.8rem;
+
+                display: none;
+            }
+
+            ul {
+                width: auto;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: flex-start;
+
+                li {
+                    padding: 0;
+                    list-style: none;
+                    margin-left: 20px;
+
+                    a {
+                        color: #000;
+                        line-height: MT.$headerHeight;
+                        padding: 8px 10px;
+                        font-size: 1rem;
+                        font-weight: 700;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: T.$mainColor;
+                        }
+
+                        &.active {
+                            background-color: T.$mainColor;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 640px) {
+                .button {
+                    display: block;
+                }
+
+                ul {
+                    display: none;
+                }
+            }
+        }
+    }
+}

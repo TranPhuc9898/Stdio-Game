@@ -1,0 +1,72 @@
+@use "../../../styles/template" as T;
+@use "../../../styles/main-template" as MT;
+
+$serviceListHeight: 240px;
+
+.serviceList {
+    width: max-content;
+
+    .service {
+        width: 1.8 * $serviceListHeight;
+        height: $serviceListHeight;
+
+        margin: 0 30px 0 0;
+        padding: 0;
+        list-style: none;
+        float: left;
+
+        position: relative;
+
+        .decor {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #ffb300;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+        }
+
+        .thumbnail {
+            width: $serviceListHeight * 3 / 4;
+            height: $serviceListHeight;
+            position: absolute;
+            padding: 0;
+            left: 0;
+            top: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .content {
+            width: calc(100% - $serviceListHeight * 3 / 4 / 2);
+            height: $serviceListHeight;
+            padding: 50px 25px 25px 40px + $serviceListHeight / 4;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            transition: 0.5s;
+            box-shadow: 20px 10px 20px 0 rgba(0, 0, 0, 0.08);
+
+            h3 {
+                font-size: 1rem;
+                font-weight: 700;
+                margin: 0 0 10px 0;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            &:hover {
+                box-shadow: 20px 10px 20px 0 rgba(0, 0, 0, 0.03);
+            }
+        }
+    }
+}

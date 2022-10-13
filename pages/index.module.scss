@@ -1,0 +1,56 @@
+@use '../styles/template' as T;
+@use '../styles/main-template' as MT;
+@use '../styles/pages' as P;
+
+.apps {
+    .banner {
+        @include MT.section();
+        padding: MT.$paddingPc;
+        background-color: #fff;
+
+        .bannerCenter {
+            @include MT.sectionCenter();
+        }
+    }
+
+    .products {
+        @include MT.section();
+
+        padding-bottom: 2 * MT.$paddingPc;
+
+        background: linear-gradient(180deg, #f0f0f4 0%, #f9f9fb 3%);
+        background-image: linear-gradient(rgb(240, 240, 244) 0%, rgb(249, 249, 251) 3%);
+
+        .productsCenter {
+            @include MT.sectionCenter();
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .genre {
+                > h2 {
+                    font-size: 2rem;
+                    margin-top: MT.$marginPc;
+                    margin-bottom: MT.$marginPc;
+                }
+
+                @include T.resetUlLi();
+
+                > ul {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: MT.$marginPc;
+
+                    @media screen and (max-width: T.$mdMin) {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: MT.$marginPhone;
+                    }
+
+                    > li {
+                    }
+                }
+            }
+        }
+    }
+}

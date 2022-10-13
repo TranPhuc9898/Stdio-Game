@@ -1,0 +1,42 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+
+.editorPopover {
+    width: max-content;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid T.$borderColor;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .copy {
+        display: flex;
+        border: 1px solid T.$borderColor;
+        border-radius: 5px;
+        overflow: hidden;
+
+        input {
+            width: 158px;
+            border: none;
+            outline: none;
+
+            box-sizing: border-box;
+            padding: 0 0 0 5px;
+        }
+
+        .button {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .actions {
+    }
+}

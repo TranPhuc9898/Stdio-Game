@@ -1,0 +1,74 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/cms-template.scss' as CT;
+
+@mixin item($height: 40px) {
+  width: 100%;
+  display: flex;
+  height: $height;
+  text-decoration: none;
+  color: #000;
+
+  .icon {
+    width: $height;
+    height: $height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text {
+    flex: auto;
+    height: $height;
+    display: flex;
+    align-items: center;
+  }
+
+  &.active {
+    color: T.$mainColor;
+    border-right: 4px solid T.$mainColor;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+}
+
+.cmsSider {
+  width: CT.$siderWidth;
+  height: max-content;
+
+  .items {
+    width: 100%;
+
+    .itemBox {
+      border-bottom: 1px solid T.$borderColor;
+
+      > a.item {
+        @include item();
+
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+
+      > .item {
+        @include item();
+      }
+
+      .subItems {
+        width: 100%;
+        padding: 0;
+
+        > a.item {
+          @include item();
+
+          &:hover {
+            background-color: #ddd;
+          }
+        }
+      }
+
+      &.active {
+        background-color: rgba(0, 0, 0, 0.03);
+      }
+    }
+  }
+}

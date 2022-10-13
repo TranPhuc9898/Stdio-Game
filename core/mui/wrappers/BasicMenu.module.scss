@@ -1,0 +1,18 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/cms-template.scss' as CT;
+
+.basicMenu {
+  .item {
+    width: 200px;
+    display: flex;
+
+    .icon {
+      width: 40px;
+    }
+
+    .text {
+      flex: auto;
+    }
+  }
+}

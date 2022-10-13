@@ -1,0 +1,18 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/auth-template.scss' as AT;
+
+.authHeader {
+    @include AT.section();
+    padding-top: MT.$paddingPc;
+    padding-bottom: MT.$paddingPc;
+
+    .authHeaderCenter {
+        @include AT.sectionCenter();
+
+        .logo {
+            width: 48px;
+            height: 48px;
+        }
+    }
+}

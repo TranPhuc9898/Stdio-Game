@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    $CONTAINER_NAME:
+        container_name: $CONTAINER_NAME
+        image: $CONTAINER_IMAGE
+        restart: always
+        labels:
+            - "traefik.http.middlewares.redirect-to-www-stdio.redirectregex.regex=https://$HOST"
+
+            - "traefik.http.routers.$CONTAINER_NAME.rule=Host(`$HOST`)"
+            - "traefik.port=$PORT"
+            - "traefik.enable=true"
+            - "traefik.docker.network=web"
+            - "traefik.http.routers.$CONTAINER_NAME.tls=true"
+            - "traefik.http.routers.$CONTAINER_NAME.tls.certresolver=le"
+
+            - "traefik.http.routers.$CONTAINER_NAME.middlewares=redirect-to-https"
+        networks:
+            - web
+networks:
+    web:
+        external: true

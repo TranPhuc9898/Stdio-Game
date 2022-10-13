@@ -1,0 +1,15 @@
+@use '../../../../../styles/template' as T;
+@use '../../../../../styles/main-template' as MT;
+
+.about {
+    width: 100%;
+
+    input {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    div {
+        margin-bottom: 1rem;
+    }
+}

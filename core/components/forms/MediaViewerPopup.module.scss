@@ -1,0 +1,38 @@
+@use "../../../styles/template" as T;
+@use "../../../styles/main-template" as MT;
+
+@mixin form() {
+    .form {
+        width: 100%;
+        line-height: 0;
+        background-color: #fff;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal {
+        @include form();
+    }
+}

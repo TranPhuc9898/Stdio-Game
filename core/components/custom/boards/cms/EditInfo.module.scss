@@ -1,0 +1,6 @@
+@use '../../../../../styles/template' as T;
+@use '../../../../../styles/main-template' as MT;
+
+.modalBox {
+    padding: MT.$paddingPc;
+}

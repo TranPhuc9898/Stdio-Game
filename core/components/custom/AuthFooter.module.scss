@@ -1,0 +1,24 @@
+@use "../../../styles/template" as T;
+@use "../../../styles/main-template" as MT;
+@use '../../../styles/auth-template.scss' as AT;
+
+.authFooter {
+    @include AT.section();
+
+    .authFooterCenter {
+        @include AT.sectionCenter();
+
+        ul {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            float: left;
+
+            li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+        }
+    }
+}

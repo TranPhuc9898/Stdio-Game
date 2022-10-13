@@ -1,0 +1,205 @@
+@use 'sass:math';
+@use '../../../styles/template' as T;
+@use '../../../styles/main-template' as MT;
+
+.articleContent {
+    width: 100%;
+    margin: 0;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 400;
+        color: #000;
+        overflow-wrap: break-word;
+    }
+
+    h2 {
+        font-size: 2rem;
+        line-height: 2.25rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+        line-height: 2rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+    }
+
+    h5 {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+
+    h6 {
+        font-size: 1.1rem;
+        line-height: 1.25rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: #000;
+        overflow-wrap: break-word;
+    }
+
+    li {
+        font-size: 1.1rem;
+        color: #000;
+        overflow-wrap: break-word;
+    }
+
+    a {
+        font-size: 1.1rem;
+        text-decoration: none;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: -moz-pre-wrap;
+        white-space: pre-wrap;
+        white-space: pre\9;
+
+        &:link {
+            color: rgb(20, 60, 130);
+        }
+
+        &:hover,
+        &:active {
+            border-bottom: none;
+        }
+
+        &:visited {
+            color: #b833e1;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    :not(pre) code {
+        font-size: 0.9rem;
+        background-color: #f0f0f0;
+        border-radius: 2px;
+        padding: 0 5px;
+        color: #000;
+    }
+
+    pre {
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: -moz-pre-wrap;
+        white-space: pre-wrap;
+        white-space: pre\9;
+        background-color: #f2f3f4;
+        padding: 10px;
+
+        > code {
+            font-size: 0.9rem;
+            color: #000;
+        }
+    }
+
+    section {
+        width: 100% !important;
+        margin-bottom: 1.1rem;
+        overflow-x: auto;
+
+        table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            border: 1px solid T.$borderColor !important;
+
+            tr {
+                th,
+                td {
+                    font-size: 0.9rem;
+                    padding: 8px;
+                    border: 1px solid T.$borderColor !important;
+                    color: #000;
+                    overflow-wrap: break-word;
+                }
+
+                th {
+                    background-color: #f9f9f9;
+                }
+
+                &:nth-of-type(2n) {
+                    td {
+                        background-color: #fcfcfc;
+                    }
+                }
+            }
+        }
+    }
+
+    figure,
+    video {
+        margin-left: 0;
+        margin-right: 0;
+
+        text-align: center;
+
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+
+        @media screen and (max-width: T.$lgMin) {
+            width: calc(100% + 2 * MT.$marginPhone);
+            position: relative;
+            margin-left: -(MT.$marginPhone);
+            margin-right: -(MT.$marginPhone);
+        }
+    }
+
+    blockquote {
+        width: 90%;
+        border-radius: 4px;
+        position: relative;
+        font-style: italic;
+        padding: 12px;
+        color: #333;
+        background: #f0f0f0;
+        margin: 1.1rem auto 2rem;
+        font-size: 1.1rem;
+        overflow-wrap: break-word;
+
+        &:before,
+        &:after {
+            position: absolute;
+            top: 10px;
+            color: #ddd;
+            font-size: 2.4rem;
+        }
+
+        &:before {
+            content: '\275D';
+            margin-right: 5;
+            right: 100%;
+        }
+
+        &:after {
+            content: '\275E';
+            margin-left: 0px;
+            left: 100%;
+            top: auto;
+            bottom: 10px;
+        }
+    }
+
+    &.last {
+        * {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

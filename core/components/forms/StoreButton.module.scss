@@ -1,0 +1,58 @@
+@use '../../../styles/template' as T;
+@use '../../../styles/main-template' as MT;
+
+$buttonHeight: 42px;
+
+.storeButton {
+    width: max-content;
+    height: $buttonHeight;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background-color: #222;
+    display: flex;
+    gap: 10px;
+    border-radius: 5px;
+
+    .icon {
+        height: $buttonHeight;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .content {
+        height: $buttonHeight;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 0.8rem;
+
+        > span {
+            white-space: nowrap;
+            color: #fff;
+
+            &:nth-of-type(1) {
+                font-size: 0.7rem;
+                text-transform: uppercase;
+            }
+
+            &:nth-of-type(2) {
+                font-size: 0.86rem;
+            }
+        }
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+
+    &:hover {
+        background-color: #000;
+    }
+}

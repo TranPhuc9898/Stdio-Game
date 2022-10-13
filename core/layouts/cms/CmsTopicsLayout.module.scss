@@ -1,0 +1,87 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/cms-template.scss' as CT;
+
+.cmsCategoriesLayout {
+    @include MT.section();
+    padding-top: MT.$paddingPc;
+    padding-bottom: MT.$paddingPc;
+
+    .cmsCategoriesLayoutCenter {
+        @include MT.sectionCenter();
+
+        padding-top: MT.$paddingPhone;
+        padding-bottom: MT.$paddingPhone;
+
+        background-color: #fff;
+        border: 1px solid T.$borderColor;
+        border-radius: 5px;
+
+        > h2 {
+            padding: 0 MT.$paddingPhone;
+            margin-bottom: MT.$marginPhone;
+            height: 32px;
+            display: flex;
+            justify-content: flex-end;
+
+            .title {
+            }
+
+            .buttons {
+                .button {
+                    @include T.button();
+                }
+            }
+        }
+
+        > ul {
+            margin: 0;
+            padding: 0 MT.$paddingPhone;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            > li {
+                margin: 0;
+                list-style: none;
+                padding: MT.$paddingPhone;
+                border: 1px solid T.$borderColor;
+                border-radius: 5px;
+
+                > h3 {
+                    margin-bottom: MT.$marginPhone;
+                    height: 32px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .title {
+                        font-size: 0.9rem;
+                    }
+
+                    .buttons {
+                    }
+                }
+
+                > table {
+                    width: 100%;
+
+                    tr {
+                        border-bottom: 1px solid T.$borderColor;
+
+                        &:hover {
+                            background-color: T.$backgroundColor;
+                        }
+
+                        &:last-of-type {
+                            border: none;
+                        }
+
+                        td {
+                            padding: MT.$paddingPhone;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

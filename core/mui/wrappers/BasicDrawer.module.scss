@@ -1,0 +1,118 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/cms-template.scss' as CT;
+
+$horizontalPadding: 15px;
+
+.header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid T.$borderColor;
+    padding: 0 $horizontalPadding;
+
+    h3 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    .close {
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f1f2f3;
+        }
+    }
+}
+
+.basicDrawer {
+    width: 320px;
+
+    &.sm {
+        width: 320px;
+    }
+
+    &.md {
+        width: 600px;
+    }
+
+    &.lg {
+        width: 900px;
+    }
+
+    &.xl {
+        width: 1200px;
+    }
+
+    .section {
+        padding: $horizontalPadding;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: MT.$paddingPhone;
+
+        .field {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 5px;
+
+            &.twoCol {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            &.threeCol {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            &.sixCol {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            h3 {
+                @include T.title();
+            }
+
+            .picture {
+                width: 100%;
+                text-align: center;
+
+                img {
+                    width: 256px;
+                    border: 1px solid T.$borderColor;
+                }
+
+                p {
+                    a {
+                    }
+                }
+            }
+
+            input[type='text'],
+            input[type='number'] {
+                @include T.inputText(100%);
+            }
+
+            textarea {
+                @include T.inputText(100%);
+                height: 80px;
+                resize: none;
+            }
+
+            select {
+                @include T.select(100%);
+            }
+
+            .button {
+                @include T.button(100%);
+            }
+        }
+    }
+}

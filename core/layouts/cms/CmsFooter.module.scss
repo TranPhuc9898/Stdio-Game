@@ -1,0 +1,9 @@
+@use '../../../styles/template.scss' as T;
+@use '../../../styles/main-template.scss' as MT;
+@use '../../../styles/cms-template.scss' as CT;
+
+.cmsFooter {
+    text-align: center;
+    height: MT.$headerHeight;
+    border-top: 1px solid MT.$borderColor;
+}

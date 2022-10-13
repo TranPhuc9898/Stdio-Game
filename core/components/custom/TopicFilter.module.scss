@@ -1,0 +1,60 @@
+@use "../../../styles/template" as T;
+@use "../../../styles/main-template" as MT;
+
+$navigationHeight: 40px;
+
+.topicFilter {
+    @include MT.section();
+    padding: 0;
+    border-bottom: 1px solid MT.$borderColor;
+
+    > .topicFilterCenter {
+        @include MT.sectionCenter();
+        height: $navigationHeight;
+
+        @include T.resetUlLi();
+
+        ul {
+            width: max-content;
+            height: $navigationHeight;
+            overflow-y: hidden;
+
+            li {
+                width: auto;
+                display: inline-block;
+
+                > a {
+                    height: $navigationHeight;
+                    line-height: $navigationHeight;
+                    background-color: transparent;
+                    border-bottom: 1px solid transparent;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    padding: 0 20px;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    margin: 0;
+                    text-align: center;
+                    font-size: 0.8rem;
+                    color: #757575;
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+
+                    &:hover,
+                    &.active {
+                        color: #000;
+                        border-color: #000;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 499px) {
+            padding-left: MT.$paddingPhone;
+            padding-right: MT.$paddingPhone;
+        }
+    }
+}

@@ -1,0 +1,163 @@
+@use '../../../styles/template' as T;
+@use '../../../styles/main-template' as MT;
+
+$inputSize: 60px;
+
+.articleSearch {
+    @include MT.section();
+
+    padding-top: MT.$paddingPc;
+
+    .articleSearchCenter {
+        @include MT.sectionCenter(720px);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        position: relative;
+
+        > .displayButton {
+            width: $inputSize;
+            height: $inputSize;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+
+            &.active,
+            &:hover {
+                background-color: #f1f2f3;
+            }
+        }
+
+        > .searchBox {
+            > .input {
+                height: $inputSize;
+                background-color: #fff;
+                border-radius: 5px;
+                border: 2px solid T.$borderColor;
+                overflow: hidden;
+
+                display: flex;
+
+                input {
+                    height: $inputSize;
+                    flex: auto;
+                    border: none;
+                    border-color: transparent;
+                    background-color: transparent;
+                    font-size: 0.9rem;
+                    padding: 8px 14px;
+                    font-size: 1rem;
+
+                    &:focus {
+                        box-shadow: none;
+                        border-color: transparent;
+                        outline: none;
+                    }
+                }
+
+                .button {
+                    width: $inputSize;
+                    height: $inputSize;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    font-size: 1.2rem;
+
+                    &.hide {
+                        display: none;
+                    }
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.1);
+                    }
+                }
+            }
+
+            > .autoComplete {
+                width: 100%;
+                max-height: 400px;
+                background-color: #fff;
+                border-radius: 5px;
+                display: none;
+                position: absolute;
+                box-shadow: 16px 24px 2px rgb(29 17 51 / 4%), 0 6px 32px 4px rgb(9 32 77 / 12%),
+                    0 8px 12px -5px rgb(29 17 51 / 12%);
+                top: $inputSize + 5px;
+                z-index: 1;
+
+                .autoCompleteBox {
+                    width: 100%;
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    > .title {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+
+                        span {
+                            height: 30px;
+                            display: flex;
+                            align-items: center;
+                            font-size: 0.8rem;
+                            font-weight: bold;
+                        }
+
+                        a {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: #eee;
+                            }
+                        }
+                    }
+
+                    > ul {
+                        width: 100%;
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            max-width: 150px;
+                            padding: 5px 10px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            border-radius: 5px;
+                            background-color: #f5f5f5;
+                            margin: 0 5px 5px 0;
+                            float: left;
+
+                            &:hover {
+                                background-color: #eee;
+                            }
+                        }
+                    }
+
+                    p {
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+
+                &.visible {
+                    display: block;
+                }
+            }
+        }
+    }
+}
